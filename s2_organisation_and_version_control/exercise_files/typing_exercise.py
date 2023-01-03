@@ -2,7 +2,7 @@ import torch
 import torch.nn.functional as F
 from torch import nn
 from torch import Tensor 
-from typing import Iterable, Union, List
+from typing import Callable, Tuple, Union, Optional, List
 
 class Network(nn.Module):
     def __init__(self, input_size: int, output_size: int, hidden_layers: List[int], drop_p: float = 0.5) -> None:
@@ -38,7 +38,11 @@ class Network(nn.Module):
         return F.log_softmax(x, dim=1)
 
 
-def validation(model: nn.Module, testloader, criterion) -> Iterable[Union[int, float], Union[int, float]]:
+def validation(
+    model: nn.Module, 
+    testloader: torch.utils.data.DataLoader, 
+    criterion: Union[Callable, nn.Module]
+) -> Tuple[float, float]:
     accuracy = 0
     test_loss = 0
     for images, labels in testloader:
@@ -59,7 +63,15 @@ def validation(model: nn.Module, testloader, criterion) -> Iterable[Union[int, f
     return test_loss, accuracy
 
 
-def train(model, trainloader, testloader, criterion, optimizer: any =None, epochs: int = 5, print_every: int = 40) -> None:
+def train(
+    model: nn.Module, 
+    trainloader: torch.utils.data.DataLoader, 
+    testloader: torch.utils.data.DataLoader, 
+    criterion: Union[Callable, nn.Module], 
+    optimizer: Optional[torch.optim.Optimizer] = None, 
+    epochs: int = 5, 
+    print_every: int = 40,
+) -> None:
     if optimizer is None:
         optimizer = torch.optim.Adam(model.parameters(), lr=1e-2)
     steps = 0
