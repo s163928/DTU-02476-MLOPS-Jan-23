@@ -53,6 +53,7 @@ def train(lr):
         else:
             loss_list.append(running_loss/len(trainloader))
             # print(f"Training loss_epoch_{e}: {running_loss/len(trainloader)}")
+    torch.save(model.state_dict(), 'trained_model.pt')
     plt.plot(loss_list, marker='o')
     plt.show()
 
@@ -63,7 +64,8 @@ def evaluate(model_checkpoint):
     print(model_checkpoint)
 
     # TODO: Implement evaluation logic here
-    model = torch.load(model_checkpoint)
+    model = MyAwesomeModel()
+    model.load_state_dict(torch.load(model_checkpoint))
     _, test_set = mnist()
     testloader = torch.utils.data.DataLoader(test_set, batch_size=64, shuffle=True)
 
@@ -77,12 +79,12 @@ def evaluate(model_checkpoint):
         # validation pass here
         for images, labels in testloader:
     
-            log_ps = model(images)
+            log_ps = model(images.float())
             loss = criterion(log_ps, labels)
 
             val_running_loss += loss.item()
 
-        ps = torch.exp(model(images))
+        ps = torch.exp(model(images.float()))
         _, top_class = ps.topk(1, dim=1)
         equals = top_class == labels.view(*top_class.shape)
         accuracy = torch.mean(equals.type(torch.FloatTensor))
