@@ -1,0 +1,76 @@
+{
+    "os": "Linux-5.15.0-56-generic-x86_64-with-glibc2.35",
+    "python": "3.10.6",
+    "heartbeatAt": "2023-01-05T12:57:05.092736",
+    "startedAt": "2023-01-05T12:57:04.013698",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "https://github.com/s163928/DTU-02476-MLOPS-Jan-23.git",
+        "commit": "8c7ca0ed7a1acbaeaaa827b745267cea1185d1d3"
+    },
+    "email": "s163928@student.dtu.dk",
+    "root": "/home/victor/Desktop/DTU-02476-MLOPS-Jan-23",
+    "host": "victor-HP-Pavilion-Laptop-15-cs3xxx",
+    "username": "victor",
+    "executable": "/usr/bin/python3",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 2411.715625,
+        "min": 400.0,
+        "max": 3700.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3145.016,
+            "min": 400.0,
+            "max": 3700.0
+        },
+        {
+            "current": 3300.001,
+            "min": 400.0,
+            "max": 3700.0
+        },
+        {
+            "current": 1500.0,
+            "min": 400.0,
+            "max": 3700.0
+        },
+        {
+            "current": 3294.485,
+            "min": 400.0,
+            "max": 3700.0
+        },
+        {
+            "current": 2234.194,
+            "min": 400.0,
+            "max": 3700.0
+        },
+        {
+            "current": 1500.0,
+            "min": 400.0,
+            "max": 3700.0
+        },
+        {
+            "current": 1500.0,
+            "min": 400.0,
+            "max": 3700.0
+        },
+        {
+            "current": 2820.029,
+            "min": 400.0,
+            "max": 3700.0
+        }
+    ],
+    "disk": {
+        "total": 467.8895797729492,
+        "used": 43.361446380615234
+    },
+    "memory": {
+        "total": 7.55133056640625
+    }
+}

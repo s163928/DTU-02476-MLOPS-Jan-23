@@ -1,0 +1,2 @@
+
+/usr/bin/python3: Error while finding module specification for 'wandb_tester.py' (ModuleNotFoundError: __path__ attribute not found on 'wandb_tester' while trying to find 'wandb_tester.py'). Try using 'wandb_tester' instead of 'wandb_tester.py' as the module name.
