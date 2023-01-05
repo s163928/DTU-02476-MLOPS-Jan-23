@@ -4,6 +4,8 @@ torch>=1.8
 torchvision
 click
 matplotlib
+black
+isort
 
 # external requirements
 click

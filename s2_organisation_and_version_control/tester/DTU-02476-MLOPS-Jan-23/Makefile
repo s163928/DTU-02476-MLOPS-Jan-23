@@ -29,6 +29,14 @@ requirements: test_environment
 data: requirements
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
 
+## Train model
+train: requirements
+	$(PYTHON_INTERPRETER) src/models/train_model.py train
+
+## Predict model
+predict: requirements
+	$(PYTHON_INTERPRETER) src/models/predict_model.py evaluate models/trained_model.pth
+
 ## Delete all compiled Python files
 clean:
 	find . -type f -name "*.py[co]" -delete
